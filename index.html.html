@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFood Recompensas</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff0000, #ca0404);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        header img {
+            max-width: 150px;
+            height: auto;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-top: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        .image-container {
+            margin: 30px 0;
+        }
+        .image-container img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            margin-top: 40px;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            background: linear-gradient(45deg, #ffffff, #ffffff);
+            color: rgb(226, 2, 2);
+            border: none;
+            padding: 15px 40px;
+            margin: 10px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .hidden {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.8rem;
+            line-height: 1.6;
+        }
+        .hidden h2 {
+            font-size: 2.5rem;
+            color: hsl(0, 0%, 100%);
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 16px;
+            color: hsl(0, 0%, 100%);
+        }
+        footer a {
+            color: hsl(0, 0%, 100%);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .final-message {
+            font-size: 2rem;
+            color: hsl(0, 0%, 100%);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ifood-logo-01.png" alt="Logo do iFood">
+    </header>
+
+    <div id="step-1">
+        <h1> Responda, para ganhar uma surpresa. </h1>
+        <form id="questions-form">
+            <p>Qual sua cor favorita?</p>
+            <input type="text" id="favorite-color" placeholder="Digite sua cor favorita">
+
+            <p>Qual é a sua comida preferida?</p>
+            <input type="text" id="favorite-food" placeholder="Digite sua comida preferida">
+
+            <p>Um lugar que você gostaria de visitar?</p>
+            <input type="text" id="dream-place" placeholder="Digite o lugar dos seus sonhos">
+
+            <button type="button" onclick="goToNextStep()">Próximo</button>
+        </form>
+    </div>
+
+    <div id="step-2" class="hidden">
+        <h1>Quer namorar comigo?</h1>
+
+        <div class="question">Você quer ser o amor da minha vida?</div>
+        <div class="button-container">
+            <button onclick="showResponse('yes')">Sim!</button>
+            <button onclick="showResponse('of_course')">Claro que simmmmmmm, momo!</button>
+        </div>
+
+        <div id="response" class="hidden">
+            <h2>Eu sabia! ❤️</h2>
+
+            <p>Desde o momento em que te conheci, você se tornou a melhor parte da minha vida.❤️</p>
+            <p>Mal posso esperar para começar essa nova fase com você. Você é incrível, meu amorzinho!</p>
+        </div>
+    </div>
+
+    <div id="step-3" class="hidden">
+        <h1> O começo de tudo! ❤️</h1>
+        <div class="image-container">
+            <img src="WhatsApp Image 2025-01-21 at 22.01.42.jpeg" alt="Foto 1 do casal">
+            <img src="WhatsApp Image 2025-01-21 at 22.00.22.jpeg" alt="Foto 2 do casal">
+        </div>
+        <div class="final-message">
+            Eu te amo, minha neguinha! ❤️
+        </div>
+        <footer>
+           AGORA OLHA PARA MIM! ❤️
+        </footer>
+    </div>
+
+    <script>
+        function goToNextStep() {
+            const step1 = document.getElementById('step-1');
+            const step2 = document.getElementById('step-2');
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+        }
+
+        function showResponse(answer) {
+            const step2 = document.getElementById('step-2');
+            const step3 = document.getElementById('step-3');
+            const responseDiv = document.getElementById('response');
+            responseDiv.classList.remove('hidden');
+
+            setTimeout(() => {
+                step2.classList.add('hidden');
+                step3.classList.remove('hidden');
+            }, 3000); // 7 segundos de atraso
+        }
+    </script>
+</body>
+</html>
